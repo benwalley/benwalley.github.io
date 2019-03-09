@@ -1,7 +1,8 @@
 var links = [
 	'google',
 	'church',
-	'test'
+	'test',
+	'dot-to-dot'
 ];
 
 function init() {

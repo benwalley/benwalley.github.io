@@ -1,8 +1,8 @@
 var links = [
-	'google',
-	'church',
-	'test',
-	'dot-to-dot'
+	{link:'google', image: 'google.PNG', title:'Fake copy of google search page'},
+	{link:'dot-to-dot', image: 'dot-to-dot.PNG', title: "Create dot to dot puzzles."},
+	{link:'lineWords', image: 'lineWords.PNG', title: "Create words with random dots and lines"}
+
 ];
 
 function init() {
@@ -12,8 +12,15 @@ function init() {
 
 function createLinks(links){
 	for (var i = 0; i < links.length; i++) {
-		var currentLink = $("<a class = 'floatingLink' href = '/" + links[i] + "'>"+ links[i] + "</a>")
-		$(".main").append(currentLink)
+		var newBlock = $("<a class='link-block' href = '/" + links[i].link + "' ></a>")
+		var blockImage = $("<div class='link-block-image'></div>")
+		blockImage.css("background-image", "url(images/" + links[i].image + ")");
+		var blockTitle = $("<span class='link-block-title'>" + links[i].title +"</span>");
+
+		newBlock.append(blockImage)
+		newBlock.append(blockTitle)
+		
+		$(".main").append(newBlock)
 	}
 }
 

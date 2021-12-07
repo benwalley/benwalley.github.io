@@ -29,6 +29,32 @@ export default function Wishlist(props) {
         db.doAddGift(listId, JSON.stringify(wishlistCopy));
     }
 
+    const askToGoIn = (index, item) => {
+        // update the item data to have you as one of the getters
+        // if(item.gotten) {
+        //     if(item.gotten.indexOf(getUserId()) > -1) {
+        //         //  If you already got it, remove it
+        //         item.gotten.splice(item.gotten.indexOf(getUserId()), 1)
+        //     } else {
+        //         item.gotten.push(getUserId())
+        //         item.gotten = [...new Set(item.gotten)]
+        //     }
+        // } else {
+        //     item.gotten = [getUserId()]
+        // }
+        // // update whole list with the updated item
+        // const listId = id;
+        // let dataCopy = wishlistData; // an array of items (each one is an object)
+        // let wishlistCopy
+        // if(dataCopy && dataCopy[listId]) {
+        //     wishlistCopy = JSON.parse(wishlistData[id])
+        // } else {
+        //     wishlistCopy = []
+        // }
+        // wishlistCopy[index] = item;
+        // db.doAddGift(listId, JSON.stringify(wishlistCopy));
+    }
+
     const handleDelete = (index, item) => {
                // update whole list with the updated item
         const listId = id;
@@ -106,7 +132,7 @@ export default function Wishlist(props) {
         return parsedItems.map((item, index) => {
                 //Don't show things that have been gotten if you are the list owner
                 if (shouldShow(item)) {
-                    return <ListItem key={index} item={item} isListOwner={isListOwner} getItem={getItem} index={index} handleDelete={handleDelete}/>
+                    return <ListItem key={index} item={item} isListOwner={isListOwner} getItem={getItem} index={index} handleDelete={handleDelete} askToGoIn={askToGoIn}/>
 
                 }
             }

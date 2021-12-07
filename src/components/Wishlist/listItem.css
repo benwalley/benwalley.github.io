@@ -11,6 +11,20 @@
     border-radius: 5px;
 }
 
+@media only screen and (max-width: 768px) {
+    .listItem {
+        display: grid;
+        grid-template-areas:
+        "name name"
+        "image link"
+        "image price"
+        "notes notes"
+        "actionButtons actionButtons";
+        grid-template-columns: 1fr 1fr;
+        text-align: center;
+    }
+}
+
 .listItemGotten {
     display: grid;
     grid-template-areas:
@@ -26,6 +40,20 @@
     cursor: not-allowed;
 }
 
+@media only screen and (max-width: 768px) {
+    .listItemGotten {
+        display: grid;
+        grid-template-areas:
+        "name name"
+        "image link"
+        "image price"
+        "notes notes"
+        "actionButtons actionButtons";
+        grid-template-columns: 1fr 1fr;
+        text-align: center;
+    }
+}
+
 .listItemGottenYou {
     display: grid;
     grid-template-areas:
@@ -37,6 +65,20 @@
     margin: 20px;
     background: #82e182;
     border-radius: 5px;
+}
+
+@media only screen and (max-width: 768px) {
+    .listItemGottenYou {
+        display: grid;
+        grid-template-areas:
+        "name name"
+        "image link"
+        "image price"
+        "notes notes"
+        "actionButtons actionButtons";
+        grid-template-columns: 1fr 1fr;
+        text-align: center;
+    }
 }
 
 .gottenCover {

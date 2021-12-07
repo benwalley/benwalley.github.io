@@ -6,12 +6,11 @@ import {firebase} from "../../firebase";
 
 
 export default function ListItem(props) {
-    const {item, isListOwner, getItem, index, handleDelete} = props
+    const {item, isListOwner, getItem, index, handleDelete, askToGoIn} = props
     const [wishlistUsers, setWishlistUsers] = useState([])
 
     useEffect( () => {
         firebase.db.ref('users').on("value", snapshot => {
-            console.log(snapshot.val())
             setWishlistUsers(snapshot.val())
         });
 
@@ -65,9 +64,9 @@ export default function ListItem(props) {
             <div className={"actionButtons"}>
                 {(isListOwner || (!isListOwner && item.isCustom && item.gotten.includes(getUserId()))) && <button onClick={() => handleDelete(index, item)} title="delete"><FontAwesomeIcon icon={faTrash} /></button>}
                 {!isListOwner && <button onClick={() => getItem(index, item)} title="Click if you are getting this"><FontAwesomeIcon icon={faShoppingCart} /></button>}
-                {!isListOwner && <button title="I want to get this with other people"><FontAwesomeIcon icon={faUserFriends} /></button>}
+                {!isListOwner && <button onClick={() => askToGoIn(index, item)} title="I want to get this with other people"><FontAwesomeIcon icon={faUserFriends} /></button>}
             </div>
-            {item.gotten && item.gotten.length > 0 && !item.gotten.includes(getUserId()) && <div className={'gottenCover'}>Gotten by:{getGottenByList(item)}</div>}
+            {item.gotten && item.gotten.length > 0 && !isListOwner && !item.gotten.includes(getUserId()) && <div className={'gottenCover'}>Gotten by:{getGottenByList(item)}</div>}
         </div>
     );
 }

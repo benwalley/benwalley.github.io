@@ -12,7 +12,7 @@ export default function AddGiftForm(props) {
                 <label htmlFor={name}>
                     {`${displayName}:`}
                 </label>
-                <input className="input" id={name} type={type || 'text'} value={gift[name]} onChange={(e) => {setGiftItem(name, e.target.value)}}/>
+                <input className="input" id={name} type={type || 'text'} value={gift[name] || ''} onChange={(e) => {setGiftItem(name, e.target.value)}}/>
             </div>
         )
     }
@@ -24,7 +24,9 @@ export default function AddGiftForm(props) {
 
     return (
         <>
-            <button className={"addWishlistButton"} onClick={()=>setIsExpanded(!isExpanded)}>Add Something to your Wishlist</button>
+            <div className={"addNameButtonContainer"}>
+                <button className={"addWishlistButton"} onClick={()=>setIsExpanded(!isExpanded)}>Add Something to your Wishlist</button>
+            </div>
             {isExpanded &&
                 <>
                     <div className="popupBackground" onClick={() => setIsExpanded(false)}></div>
@@ -36,8 +38,8 @@ export default function AddGiftForm(props) {
                             {makeSimpleInput('link', 'Link')}
                             {makeSimpleInput('price', 'Approximate Price', "number")}
                             {makeSimpleInput('notes', 'Notes')}
+                            <button type="submit" className={"blueButton"} onClick={doHandleSubmit}>Add To Wishlist</button>
                         </form>
-                        <button className={"blueButton"} onClick={doHandleSubmit}>Add To Wishlist</button>
                     </div>
                 </>}
         </>

@@ -2,12 +2,25 @@
     padding: 10px 20px;
 }
 
+@media only screen and (max-width: 768px) {
+    .formItem {
+        padding: 10px 0;
+    }
+}
+
 .formItem input {
     padding: 8px 15px;
     margin: 10px;
     border-radius: 3px;
     border: 1px solid black;
-    width: 500px
+    width: 500px;
+    max-width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+    .formItem input {
+        margin: 0;
+    }
 }
 
 .formItem label {
@@ -16,6 +29,15 @@
     font-weight: 600;
     text-align: right;
     padding-right: 10px;
+    max-width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+    .formItem label {
+        text-align: left;
+        width: auto;
+        font-weight: 700;
+    }
 }
 
 .addForm {
@@ -29,6 +51,15 @@
     left: 50%;
     transform: translateX(-50%);
     padding: 50px;
+    z-index: 10;
+    overflow-y: scroll;
+}
+
+@media only screen and (max-width: 768px) {
+    .addForm {
+        padding: 10px;
+        text-align: center;
+    }
 }
 
 .addForm button {
@@ -51,12 +82,19 @@
 
 .addWishlistButton {
     border: none;
-    background: #1556c9;
-    border-radius: 3px;
+    background: #208734;
+    border-radius: 5px;
     padding: 10px 20px;
     font-size: 24px;
     color: white;
     font-weight: 700;
     letter-spacing: .5px;
+
+}
+
+.addNameButtonContainer {
     width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 30px;
 }

@@ -50,7 +50,7 @@ export default function Navigation(props) {
             if(user !== getUserId() && wishlists[user]) {
                 wishlistArray.push(
                     <div key={user} className={"popupItem"}>
-                        <Link to={'/wishlist/' + user}>
+                        <Link to={'/wishlist/' + user} onClick={() => setPopupOpen(false)}>
                             {wishlistUsers[user].name}
                         </Link>
                     </div>
@@ -63,7 +63,7 @@ export default function Navigation(props) {
 
     const getName = () => {
         try {
-            return wishlistUsers[user].name;
+            return wishlistUsers[getUserId()].name;
         } catch(e) {
             return "Home"
         }

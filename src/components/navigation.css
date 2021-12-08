@@ -9,9 +9,25 @@
         display: flex;
         flex-direction: column;
     }
+
+    .homeLink {
+        font-size: 20px;
+    }
 }
 
 
+.homeLink:hover {
+    text-decoration: none;
+}
+
+button:hover {
+    filter: brightness(90%);
+}
+
+.pageTitle {
+    text-align: center;
+    margin: 40px 0;
+}
 
 .popup {
     position: fixed;

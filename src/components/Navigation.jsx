@@ -74,14 +74,14 @@ export default function Navigation(props) {
         <div className="navbar">
             {auth.currentUser === null ? (
                     <Link to={routes.SIGN_IN}>
-                        <button>SignIn/SignUp</button>
+                        <button className="blueButton">SignIn/SignUp</button>
                     </Link>
                 ) :
                 (<>
                         <button className={"blueButton"} onClick={() => setPopupOpen(!popupOpen)}>View other wishlists</button>
                         <h2>
-                            <Link to={'/'}>
-                                {getName()}
+                            <Link className={"homeLink"} to={'/'}>
+                                {getName()} (your wishlist)
                             </Link>
                         </h2>
                         <SignOutButton/>

@@ -53,6 +53,7 @@ export default function Landing() {
             myWishlist = []
         }
         myWishlist.push(gift)
+        setGift({})
         db.doAddGift(userId, JSON.stringify(myWishlist));
     }
 

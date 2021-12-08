@@ -47,7 +47,7 @@ export default function Navigation(props) {
         const wishlistArray = [];
         for(const user in wishlistUsers) {
             // make sure the wishlist is not yours, and the user has a wishlist
-            if(user !== getUserId() && wishlists[user]) {
+            if(user !== getUserId()) {
                 wishlistArray.push(
                     <div key={user} className={"popupItem"}>
                         <Link to={'/wishlist/' + user} onClick={() => setPopupOpen(false)}>

@@ -14,8 +14,8 @@ export default function ListItem(props) {
         firebase.db.ref('users').on("value", snapshot => {
             setWishlistUsers(snapshot.val())
         });
-        confirmItemGetters()
-        confirmItemWantToGetters()
+        // confirmItemGetters()
+        // confirmItemWantToGetters()
     }, []);
 
     const getPrice = (price) => {

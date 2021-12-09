@@ -26,6 +26,8 @@ export default function Wishlist(props) {
             isCustom: true
         })
 
+        setCustomName('')
+
         db.doAddGift(listId, JSON.stringify(wishlistCopy));
     }
 

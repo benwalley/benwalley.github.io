@@ -66,10 +66,10 @@ export default function ListItem(props) {
         if(itemData.gotten && itemData.gotten.indexOf(getUserId()) > -1) {
             return "listItemGottenYou"
         }
-        if(itemData.gotten && item.gotten.length > 0 && itemData.gotten.indexOf(getUserId()) === -1) {
+        if(!isListOwner && itemData.gotten && item.gotten.length > 0 && itemData.gotten.indexOf(getUserId()) === -1) {
             return "listItemGotten"
         }
-        if(itemData.wantToGet && item.wantToGet.length > 0 && itemData.wantToGet.indexOf(getUserId()) > -1) {
+        if(!isListOwner && itemData.wantToGet && item.wantToGet.length > 0 && itemData.wantToGet.indexOf(getUserId()) > -1) {
             return "listItemWantToGet"
         }
         return "listItem"
@@ -101,7 +101,7 @@ export default function ListItem(props) {
             <div className={"name"}>{item.name}</div>
             {item.link && <a className={"link"} href={item.link}>Visit link</a>}
             {item.price && <div className={"price"}>Approximate price: {getPrice(item.price)}</div>}
-            {item.notes && <div className={"notes"}>Notes: {item.notes}</div>}
+            {item.notes && <div className={"notes"}><b>Notes:</b> {item.notes}</div>}
             <div className={"actionButtons"}>
                 {(isListOwner || (!isListOwner && item.isCustom && item.gotten.includes(getUserId()))) && <button onClick={() => handleDelete(index, item)} title="delete"><FontAwesomeIcon icon={faTrash} /></button>}
                 {!isListOwner && <button onClick={() => getItem(index, item)} title="Click if you are getting this"><FontAwesomeIcon icon={faShoppingCart} /></button>}

@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Navigation from "./Navigation";
 import AddGiftForm from './AddGiftForm';
 import Wishlist from './Wishlist';
+import YourGiving from "./YourGiving";
 import { db, firebase } from "../firebase";
 import './landing.css';
 
@@ -57,14 +58,26 @@ export default function Landing() {
         db.doAddGift(userId, JSON.stringify(myWishlist));
     }
 
-
+    const getUserById = (id) => {
+        return wishlistUsers[id] || '';
+    }
 
     return (
         <div>
             {getUserId() ?
                 <>
-                    <AddGiftForm setGiftItem={setGiftItem} gift={gift} handleSubmit={handleSubmit}/>
-                    <Wishlist id={getUserId()}/>
+                    <div className={"homePagemainContainer"}>
+                        <div className={"homePageaddGiftForm"}>
+                            <AddGiftForm  setGiftItem={setGiftItem} gift={gift} handleSubmit={handleSubmit}/>
+                        </div>
+                        <div className={"homePagewishlist"}>
+                            <Wishlist id={getUserId()}/>
+                        </div>
+                        <div className={"homePageyourGiving"}>
+                            <YourGiving wishlists={wishlistItems} userId={getUserId()} getUserById={getUserById}/>
+                        </div>
+                    </div>
+
                 </>
                 :
                 <h1 className={"notLoggedIn"}>Please log in to continue</h1>

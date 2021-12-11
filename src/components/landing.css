@@ -3,3 +3,34 @@
     text-align: center;
 }
 
+.homePagemainContainer {
+    display: grid;
+    grid-template:
+    "addGiftForm addGiftForm"
+    "leftColumn center";
+    grid-template-columns: 500px 1fr;
+}
+
+@media only screen and (max-width: 1200px) {
+    .homePagemainContainer {
+        display: grid;
+        grid-template:
+            "addGiftForm"
+            "center"
+            "leftColumn";
+        grid-template-columns: 1fr;
+    }
+}
+
+.homePageaddGiftForm {
+    grid-area: addGiftForm;
+}
+
+.homePageyourGiving {
+    grid-area: leftColumn;
+}
+
+.homePagewishlist {
+    grid-area: center;
+}
+

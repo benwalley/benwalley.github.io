@@ -1,0 +1,28 @@
+.yourGivingContainer {
+    padding: 20px;
+}
+
+.givingItem {
+    display: flex;
+}
+
+.givingItemPerson {
+    padding: 10px;
+    font-weight: bold;
+    border-right: 1px solid #989898;
+    min-width: 125px;
+}
+
+.givingItem:nth-of-type(odd) {
+    background: #dddddd;
+}
+
+.givingItemName {
+    padding: 10px;
+}
+
+.yourGivingTitle {
+    margin-bottom: 30px;
+}
+
+
